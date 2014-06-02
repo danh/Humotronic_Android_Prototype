@@ -1,0 +1,142 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="${packageName}.${activityClass}" >
+
+    <ImageView
+        android:id="@+id/imgItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/item" />
+
+    <TextView
+        android:id="@+id/txtItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/itemName"
+        android:textSize="25sp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/imgUser"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/user" />
+
+    <TextView
+        android:id="@+id/txtUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="170dp"
+        android:text="@string/name"
+        android:textSize="50sp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/imgFollow"
+        android:layout_width="150dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="420dp"
+        android:clickable="true"
+        android:src="@drawable/follow" />
+
+    <ImageView
+        android:id="@+id/imgShare"
+        android:layout_width="30dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="530dp"
+        android:clickable="true"
+        android:src="@drawable/share" />
+
+    <ImageView
+        android:id="@+id/imgRepost"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="720dp"
+        android:layout_marginLeft="20dp"
+        android:clickable="true"
+        android:src="@drawable/repost" />
+
+    <TextView
+        android:id="@+id/txtRepost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="715dp"
+		android:layout_marginLeft="80dp"
+		android:textSize="30sp"
+        android:text="@string/repost" />
+
+    <ImageView
+        android:id="@+id/imgLike"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+		android:layout_marginTop="710dp"
+		android:layout_marginLeft="200dp"
+		android:clickable="true"
+        android:src="@drawable/like" />
+
+    <TextView
+        android:id="@+id/txtLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="715dp"
+		android:layout_marginLeft="240dp"
+		android:textSize="30sp"
+        android:text="@string/num" />
+
+    <ImageView
+        android:id="@+id/imgDislike"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+		android:layout_marginTop="710dp"
+		android:layout_marginLeft="320dp"
+		android:clickable="true"
+        android:src="@drawable/dislike" />
+
+    <TextView
+        android:id="@+id/txtDislike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="715dp"
+		android:layout_marginLeft="360dp"
+		android:textSize="30sp"
+        android:text="@string/num" />
+
+    <ImageView
+        android:id="@+id/imgEdit"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="710dp"
+        android:layout_marginLeft="450dp"
+        android:clickable="true"
+        android:src="@drawable/edit" />
+
+    <TextView
+        android:id="@+id/txtEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="715dp"
+		android:layout_marginLeft="500dp"
+        android:textSize="30sp"
+        android:text="@string/edit" />
+
+    <TextView
+        android:id="@+id/txtComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginTop="780dp"
+		android:layout_marginLeft="80dp"
+        android:textSize="35sp"
+        android:text="@string/comment" />
+</RelativeLayout>
