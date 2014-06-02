@@ -31,12 +31,6 @@ public class ItemAdapter2 extends BaseAdapter{
 			// SET item on grid view one by one
 			gridView = inflater.inflate(R.layout.layout_single_item2, null);
 			
-//			TextView itemName = (TextView) gridView.findViewById(R.id.itemName2);
-//			itemName.setText(itemValue[position]);
-//
-//			ImageView imageView = (ImageView) gridView.findViewById(R.id.itemView2);
-//			imageView.setImageResource(R.drawable.item2);
-			
 		} else {
 			gridView = (View) view;
 		}

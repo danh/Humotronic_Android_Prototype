@@ -1,0 +1,134 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.swipetab.FragmentUserProfile" >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/txtUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="170dp"
+        android:text="@string/name"
+        android:textSize="50sp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/imgUser"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/user" />
+    
+    <TextView
+        android:id="@+id/txtEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+		android:layout_marginLeft="170dp"
+        android:textSize="30sp"
+        android:text="@string/edit" />
+    
+    <ImageView
+        android:id="@+id/imgFollow"
+        android:layout_width="150dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="420dp"
+        android:clickable="true"
+        android:src="@drawable/follow" />
+
+    <Button
+        android:id="@+id/btnFollowers"
+        android:layout_width="270dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/follower" />
+
+    <Button
+        android:id="@+id/btnFollowing"
+        android:layout_width="270dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="310dp"
+        android:text="@string/following" />
+
+    <TextView
+        android:id="@+id/txtAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="50dp"
+        android:textSize="30sp"
+        android:text="@string/all" />
+    
+    <TextView
+        android:id="@+id/txtSymbolVertical1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="395dp"
+        android:layout_marginLeft="100dp"
+        android:textSize="35sp"
+        android:text="@string/symbol_vertical" />
+    
+    <TextView
+        android:id="@+id/txtUploads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="150dp"
+        android:textSize="30sp"
+        android:text="@string/uploads" />
+    
+    <TextView
+        android:id="@+id/txtSymbolVertical2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="395dp"
+        android:layout_marginLeft="270dp"
+        android:textSize="35sp"
+        android:text="@string/symbol_vertical" />
+    
+    <TextView
+        android:id="@+id/txtReposts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="290dp"
+        android:textSize="30sp"
+        android:text="@string/reposts" />
+
+    <ImageView
+        android:id="@+id/imgCamera"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="115dp"
+        android:src="@drawable/camera" />
+    
+    <GridView
+        android:id="@+id/userPicGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+
+		android:background="#DDDDDD"
+
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:columnWidth="280dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center" >
+    </GridView>
+
+</FrameLayout>

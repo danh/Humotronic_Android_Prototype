@@ -34,12 +34,12 @@ public class UserPictureAdapter extends BaseAdapter implements OnClickListener{
 			// SET item on grid view one by one
 			mView = inflater.inflate(R.layout.layout_single_user_picture, null);
 
-			ImageView imageView = (ImageView) mView.findViewById(R.id.itemView);
-			imageView.setImageResource(R.drawable.item2);
-
 		} else {
 			mView = (View) view;
 		}
+		
+		ImageView imageView = (ImageView) mView.findViewById(R.id.itemView);
+		imageView.setImageResource(R.drawable.item2);
 		
 		return mView;
 	}

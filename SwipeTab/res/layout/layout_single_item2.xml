@@ -5,19 +5,19 @@
     
     <ImageView
         android:id="@+id/itemView2"
-        android:layout_width="600dp"
-        android:layout_height="390dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="160dp"
+        android:layout_height="106dp"
         android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
         android:src="@drawable/item2" />
 
     <TextView
         android:id="@+id/itemName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="5dp"
-        android:textSize="25sp"
-        android:text="@string/itemName" />
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/itemView2"
+        android:text="@string/itemName"
+        android:textSize="15sp" />
 
 </RelativeLayout>
