@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BBFF"
+    tools:context="com.example.swipetab.FragmentYourFeed" >
+
+    <!-- TODO: Update blank fragment layout -->
+
+	<GridView
+        android:id="@+id/itemGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+
+		android:background="#00BBFF"
+
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:columnWidth="380dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center" >
+    </GridView>
+
+</FrameLayout>

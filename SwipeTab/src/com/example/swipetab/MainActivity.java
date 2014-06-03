@@ -101,11 +101,11 @@ class MyAdapter extends FragmentPagerAdapter {
 		Fragment fragment = null;
 			// move to the related Fragment
 		if (arg0 == 0) {
-			fragment = new FragmentA();
+			fragment = new FragmentCheezburger();
 		} else if (arg0 == 1) {
-			fragment = new FragmentB();
+			fragment = new FragmentYourFeed();
 		} else if (arg0 == 2) {
-			fragment = new FragmentC();
+			fragment = new FragmentHotToday();
 		}
 		return fragment;
 	}
