@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SwipeTab</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="itemName">Item Name</string>
+    <string name="name">Name</string>
+    <string name="repost">Repost</string>
+    <string name="comment">35 Comments</string>
+    <string name="num">Num</string>
+    <string name="title_activity_item_detail">ItemDetailActivity</string>
+    <string name="edit">Edit</string>
+    <string name="title_activity_item_adapter">ItemAdapter</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="all">All</string>
+    <string name="uploads">Uploads</string>
+    <string name="reposts">Reposts</string>
+    <string name="symbol_vertical">|</string>
+    <string name="title_activity_user_profile">UserProfileActivity</string>
+
+    <string-array name="itemNames">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Item 5</item>
+        <item>Item 6</item>
+        <item>Item 7</item>
+        <item>Item 8</item>
+        <item>Item 9</item>
+        <item>Item 10</item>
+    </string-array>
+    
+    <string-array name="followerNames">
+        <item>JoJo</item>
+        <item>Kate Chen</item>
+        <item>Dolly</item>
+        <item>Bonny</item>
+        <item>Jack</item>
+        <item>Smith</item>
+        <item>Mary</item>
+        <item>Vitoria</item>
+        <item>Sally</item>
+        <item>Mikasaki</item>
+        <item>JoJo</item>
+        <item>Shana</item>
+        <item>Boss</item>
+        <item>Android</item>
+        <item>Yugi</item>
+        <item>Kasumi</item>
+        <item>Kat</item>
+        <item>Romeo</item>
+        <item>Juliet</item>
+        <item>Mika</item>
+    </string-array>
+    
+    <string-array name="followingNames">
+        <item>JaJa</item>
+        <item>Kite Chen</item>
+        <item>Dally</item>
+        <item>Big Bonny</item>
+        <item>Jonh</item>
+        <item>Smath</item>
+        <item>Lery</item>
+        <item>Vito</item>
+        <item>Selly</item>
+        <item>Mikami</item>
+        <item>JiJi</item>
+        <item>Shena</item>
+        <item>Belly</item>
+        <item>Andrew</item>
+        <item>Yuki</item>
+        <item>Katsumi</item>
+        <item>Kute</item>
+        <item>Romino</item>
+        <item>Juli</item>
+        <item>Mik</item>
+    </string-array>
+
+    <string name="title_activity_followers">FollowersActivity</string>
+    <string name="title_activity_following">FollowingActivity</string>
+
+</resources>

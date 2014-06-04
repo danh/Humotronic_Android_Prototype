@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFCC00"
+    tools:context="com.example.mycheezburger.fragment.FragmentCheezburger" >
+
+    <!-- TODO: Update blank fragment layout -->
+
+	<cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp" />
+
+    <com.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="165dp" />
+
+    <GridView
+        android:id="@+id/itemGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        android:layout_marginTop="175dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+
+		android:background="#FFCC00"
+
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:columnWidth="160dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center" >
+    </GridView>
+
+    <ImageView
+        android:id="@+id/imgFollow"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="5dp"
+        android:clickable="true"
+        android:src="@drawable/follow" />
+
+</RelativeLayout>
