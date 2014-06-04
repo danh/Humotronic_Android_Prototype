@@ -1,6 +1,6 @@
 package com.example.mycheezburger.adapter;
 
-import com.example.mycheezburger.UserProfileActivity;
+import com.example.mycheezburger.activity.UserProfileActivity;
 import com.example.swipetab.R;
 
 import android.content.Context;

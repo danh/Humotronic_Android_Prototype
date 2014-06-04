@@ -1,7 +1,7 @@
 package com.example.mycheezburger.fragment;
 
-import com.example.mycheezburger.FollowersActivity;
-import com.example.mycheezburger.FollowingActivity;
+import com.example.mycheezburger.activity.FollowersActivity;
+import com.example.mycheezburger.activity.FollowingActivity;
 import com.example.mycheezburger.adapter.UserPictureAdapter;
 import com.example.swipetab.R;
 

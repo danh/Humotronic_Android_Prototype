@@ -15,8 +15,8 @@
 
     <ImageView
         android:id="@+id/imgFollow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="10dp"
@@ -33,7 +33,7 @@
         android:text="@string/name" />
 
     <TextView
-        android:id="@+id/txtEdit"
+        android:id="@+id/txtFollowEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imgUser"

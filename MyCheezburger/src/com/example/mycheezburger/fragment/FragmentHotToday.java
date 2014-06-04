@@ -1,6 +1,6 @@
 package com.example.mycheezburger.fragment;
 
-import com.example.mycheezburger.ItemDetailActivity;
+import com.example.mycheezburger.activity.ItemDetailActivity;
 import com.example.mycheezburger.adapter.ItemAdapter2;
 import com.example.swipetab.R;
 

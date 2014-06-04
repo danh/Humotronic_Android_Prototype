@@ -1,5 +1,9 @@
 package com.example.mycheezburger.adapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;
 
 import android.content.Context;
@@ -15,15 +19,27 @@ import android.widget.Toast;
 public class UserFollowersAdapter extends BaseAdapter implements OnClickListener{
 
 	private Context context;
-	private String[] followersName;
+//	private String[] followersName;
+	
+	List<UserFollow> userFollows = new ArrayList<UserFollow>();
 	
 	TextView txtFollowerName;
+	TextView txtFollowerEdit;
 	ImageView imgFollow;
 	ImageView imgUser;
 	
 	public UserFollowersAdapter(Context context, String[] followersName) {
 		this.context = context;
-		this.followersName = followersName;
+//		this.followersName = followersName;
+		
+		// Set userFollows list
+		UserFollow userFollow;
+		
+		for (int i = 0; i < followersName.length; ++i) {
+			userFollow = new UserFollow(i, followersName[i], "Edit", R.drawable.user, false);
+						
+			userFollows.add(userFollow);
+		}
 	}
 	
 	@Override
@@ -38,33 +54,35 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 			listView = new View(context);
 			
 			// SET item on grid view one by one
-			listView = inflater.inflate(R.layout.layout_single_user_follow, null);
+			listView = inflater.inflate(R.layout.layout_single_user_follow, viewGroup, false);
 			
 		} else {
 			listView = (View) view;
 		}
-		
-		txtFollowerName = (TextView) listView.findViewById(R.id.txtFollowName);
-		txtFollowerName.setText(followersName[position]);
 
 		imgUser = (ImageView) listView.findViewById(R.id.imgUser);
-		imgUser.setImageResource(R.drawable.user);
+//		imgUser.setImageResource(R.drawable.user);
+		imgUser.setImageResource(userFollows.get(position).getImgId());
+		
+		txtFollowerName = (TextView) listView.findViewById(R.id.txtFollowName);
+//		txtFollowerName.setText(followersName[position]);
+		txtFollowerName.setText(userFollows.get(position).getName());
+		
+		txtFollowerEdit = (TextView) listView.findViewById(R.id.txtFollowEdit);
+		txtFollowerEdit.setText(userFollows.get(position).getEdit());
 		
 		imgFollow = (ImageView) listView.findViewById(R.id.imgFollow);
+		imgFollow.setTag(userFollows.get(position).getId());
+//		imgFollow.setImageResource(R.drawable.follow);
+		if (userFollows.get(position).getIsFollowed() == false) {
+			imgFollow.setImageResource(R.drawable.follow);
+			
+		} else {
+			imgFollow.setImageResource(R.drawable.followed);
+		}
+
 		
-//		if (imgFollow.getDrawable() != context.getResources().getDrawable(R.drawable.follow)
-//				&& imgFollow.getDrawable() != null) {
-//			imgFollow.setImageResource(R.drawable.followed);
-//		}
-//		
-//		if (imgFollow.getDrawable() == null)
-//		{
-//			imgFollow.setImageResource(R.drawable.follow);
-//		}
-		
-		imgFollow = (ImageView) listView.findViewById(R.id.imgFollow);
-		imgFollow.setImageResource(R.drawable.follow);
-		
+
 		imgFollow.setOnClickListener(this);
 		
 		return listView;
@@ -78,8 +96,20 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 			case R.id.imgFollow:
 			{
 				imgFollow = (ImageView) v.findViewById(R.id.imgFollow);
-				imgFollow.setImageResource(R.drawable.followed);
-				Toast.makeText(context, "Follow Successful", Toast.LENGTH_SHORT).show();
+				
+				// if user is followed, unfollow
+				if (userFollows.get((int)imgFollow.getTag()).getIsFollowed() == true) {
+					imgFollow.setImageResource(R.drawable.follow);
+					userFollows.get((int)imgFollow.getTag()).setIsFollowed(false);
+					Toast.makeText(context, "Unfollow Successful", Toast.LENGTH_SHORT).show();
+					
+				} else {
+					// if user is not followed, allow user to be followed
+					// set Is followed = true
+					imgFollow.setImageResource(R.drawable.followed);
+					userFollows.get((int)imgFollow.getTag()).setIsFollowed(true);
+					Toast.makeText(context, "Follow Successful", Toast.LENGTH_SHORT).show();
+				}
 			}
 			break;
 			default:
@@ -92,19 +122,19 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return followersName.length;
+		return userFollows.size();
 	}
 
 	@Override
-	public Object getItem(int arg0) {
+	public Object getItem(int position) {
 		// TODO Auto-generated method stub
-		return null;
+		return userFollows.get(position);
 	}
 
 	@Override
-	public long getItemId(int arg0) {
+	public long getItemId(int i) {
 		// TODO Auto-generated method stub
-		return 0;
+		return i;
 	}
 
 }

@@ -3,7 +3,7 @@ package com.example.mycheezburger.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.mycheezburger.ItemDetailActivity;
+import com.example.mycheezburger.activity.ItemDetailActivity;
 import com.example.mycheezburger.adapter.ImagePagerAdapter;
 import com.example.mycheezburger.adapter.ItemAdapter2;
 import com.example.swipetab.R;
