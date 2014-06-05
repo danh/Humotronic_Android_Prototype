@@ -1,12 +1,17 @@
 package com.example.mycheezburger.fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.example.mycheezburger.activity.FollowersActivity;
 import com.example.mycheezburger.activity.FollowingActivity;
 import com.example.mycheezburger.adapter.UserPictureAdapter;
+import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +44,15 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 	Button btnFollower;
 	Button btnFollowing;
 
+	String[] followersName;
+	String[] followingName;
+	
+	private final String TAG_USER_FOLLOWERS = "UserFollowers";
+	private final String TAG_USER_FOLLOWING = "UserFollowing";
+	
+	List<UserFollow> userFollowers = new ArrayList<UserFollow>();
+	List<UserFollow> userFollowing = new ArrayList<UserFollow>();
+	
 	
 	public FragmentUserProfile() {
 		// Required empty public constructor
@@ -50,6 +64,12 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		// Inflate the layout for this fragment
 		View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
 		
+		// Initial User follower
+		InitUserFollowers();
+		
+		// Initial User follower
+		InitUserFollowing();
+		
 		userPictures = getResources().getStringArray(R.array.itemNames);
 		
 		imgFollow = (ImageView) view.findViewById(R.id.imgFollow);
@@ -58,8 +78,12 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		txtReposts = (TextView) view.findViewById(R.id.txtReposts);
 		
 		btnFollower = (Button) view.findViewById(R.id.btnFollowers);
-		btnFollowing = (Button) view.findViewById(R.id.btnFollowing);
+		btnFollower.setText("FOLLOWERS: \n" + userFollowers.size());
+		btnFollower.setTextSize(1,(float) 20.0);
 		
+		btnFollowing = (Button) view.findViewById(R.id.btnFollowing);
+		btnFollowing.setText("FOLLOWING: \n" + userFollowing.size());
+		btnFollowing.setTextSize(1,(float) 20.0);
 		
 			// SET on click listener
 		imgFollow.setOnClickListener(this);
@@ -89,6 +113,14 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 			{
 				Toast.makeText(getActivity(), "Clicked on button Follower", Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(getActivity(), FollowersActivity.class);
+				
+				// set user follow information to bundle
+				Bundle bundle = new Bundle();
+				bundle.putParcelableArrayList(TAG_USER_FOLLOWERS, (ArrayList<? extends Parcelable>) userFollowers);
+				
+				// set bundle into intent
+				intent.putExtras(bundle);
+				
 				startActivity(intent);
 			}
 			break;
@@ -96,6 +128,14 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 			{
 				Toast.makeText(getActivity(), "Click on button Following", Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(getActivity(), FollowingActivity.class);
+				
+				// set user follow information to bundle
+				Bundle bundle = new Bundle();
+				bundle.putParcelableArrayList(TAG_USER_FOLLOWING, (ArrayList<? extends Parcelable>) userFollowing);
+				
+				// set bundle into intent
+				intent.putExtras(bundle);
+				
 				startActivity(intent);
 			}
 			break;
@@ -123,6 +163,32 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 			{
 				Toast.makeText(getActivity(), "Nothing", Toast.LENGTH_SHORT).show();
 			}
+		}
+	}
+	
+	public void InitUserFollowers() {
+		// get User name
+		followersName = getResources().getStringArray(R.array.followerNames);
+		// Set userFollows list
+		UserFollow userFollow;
+		
+		for (int i = 0; i < followersName.length; ++i) {
+			userFollow = new UserFollow(i, followersName[i], "Edit", R.drawable.user, false);
+						
+			userFollowers.add(userFollow);
+		}
+	}
+	
+	public void InitUserFollowing() {
+		// get User name
+		followingName = getResources().getStringArray(R.array.followingNames);
+		// Set userFollows list
+		UserFollow userFollow;
+		
+		for (int i = 0; i < followingName.length; ++i) {
+			userFollow = new UserFollow(i, followingName[i], "Edit", R.drawable.user, true);
+						
+			userFollowing.add(userFollow);
 		}
 	}
 }

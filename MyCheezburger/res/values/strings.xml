@@ -77,6 +77,11 @@
         <item>Romino</item>
         <item>Juli</item>
         <item>Mik</item>
+        <item>May</item>
+        <item>Seal</item>
+        <item>Jenny</item>
+        <item>Alice</item>
+        <item>Long</item>
     </string-array>
 
     <string name="title_activity_followers">FollowersActivity</string>

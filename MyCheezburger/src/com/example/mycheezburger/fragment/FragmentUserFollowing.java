@@ -42,7 +42,7 @@ public class FragmentUserFollowing extends Fragment {
 		
 		if (savedInstanceState == null) {
 			// Initial user followers
-			InitUserFollowers();
+			userFollowing = getArguments().getParcelableArrayList(TAG_USER_FOLLOWING);
 		} else {
 			userFollowing = savedInstanceState.getParcelableArrayList(TAG_USER_FOLLOWING);
 		}
@@ -63,18 +63,5 @@ public class FragmentUserFollowing extends Fragment {
 		super.onSaveInstanceState(outState);
 		outState.putParcelableArrayList(TAG_USER_FOLLOWING, (ArrayList<? extends Parcelable>) userFollowing);
 	};
-	
-	public void InitUserFollowers() {
-		// get User name
-		followingName = getResources().getStringArray(R.array.followerNames);
-		// Set userFollows list
-		UserFollow userFollow;
-		
-		for (int i = 0; i < followingName.length; ++i) {
-			userFollow = new UserFollow(i, followingName[i], "Edit", R.drawable.user, true);
-						
-			userFollowing.add(userFollow);
-		}
-	}
 
 }
