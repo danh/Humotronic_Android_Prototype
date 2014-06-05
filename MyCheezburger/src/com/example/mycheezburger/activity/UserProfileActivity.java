@@ -6,13 +6,12 @@ import com.example.swipetab.R;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
 
 public class UserProfileActivity extends FragmentActivity{
 
-	FragmentUserProfile fUserProfile;
 	
-	FragmentManager manager;
 	
 	int display_mode;
 	
@@ -20,31 +19,13 @@ public class UserProfileActivity extends FragmentActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_profile);
-		
-//		manager = getSupportFragmentManager();
-//		
-//		display_mode = getResources().getConfiguration().orientation;
-//		
-//		if (display_mode == 1) {
-//			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfilePor);
-//		} else {
-//			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfileLand);
-//		}
 
+		FragmentManager manager = getSupportFragmentManager();
+		FragmentTransaction transaction = manager.beginTransaction();
+		
+		FragmentUserProfile fUserProfile = new FragmentUserProfile();
+		transaction.add(R.id.fragmentUserProfile, fUserProfile);
+		transaction.commit();
 	}
-	
-//	@Override
-//	protected void onStart() {
-//		// TODO Auto-generated method stub
-//		super.onStart();
-//		
-//		display_mode = getResources().getConfiguration().orientation;
-//		
-//		if (display_mode == 1) {
-//			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfilePor);
-//		} else {
-//			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfileLand);
-//		}
-//	}
 
 }

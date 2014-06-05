@@ -48,7 +48,7 @@
         android:src="@drawable/follow" />
 
     
-    
+    #FFFF00
     <GridView
         android:id="@+id/userPicGridView"
         android:layout_width="match_parent"
@@ -61,7 +61,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
 
-		android:background="#DDDDDD"
+		android:background="#FFFF00"
 
         android:numColumns="auto_fit"
         android:horizontalSpacing="10dp"
