@@ -21,30 +21,30 @@ public class UserProfileActivity extends FragmentActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_profile);
 		
-		manager = getSupportFragmentManager();
-		
-		display_mode = getResources().getConfiguration().orientation;
-		
-		if (display_mode == 1) {
-			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfilePor);
-		} else {
-			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfileLand);
-		}
+//		manager = getSupportFragmentManager();
+//		
+//		display_mode = getResources().getConfiguration().orientation;
+//		
+//		if (display_mode == 1) {
+//			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfilePor);
+//		} else {
+//			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfileLand);
+//		}
 
 	}
 	
-	@Override
-	protected void onStart() {
-		// TODO Auto-generated method stub
-		super.onStart();
-		
-		display_mode = getResources().getConfiguration().orientation;
-		
-		if (display_mode == 1) {
-			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfilePor);
-		} else {
-			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfileLand);
-		}
-	}
+//	@Override
+//	protected void onStart() {
+//		// TODO Auto-generated method stub
+//		super.onStart();
+//		
+//		display_mode = getResources().getConfiguration().orientation;
+//		
+//		if (display_mode == 1) {
+//			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfilePor);
+//		} else {
+//			fUserProfile = (FragmentUserProfile) manager.findFragmentById(R.id.fragmentUserProfileLand);
+//		}
+//	}
 
 }

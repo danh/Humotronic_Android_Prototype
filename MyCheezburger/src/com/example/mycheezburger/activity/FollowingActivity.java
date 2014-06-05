@@ -18,7 +18,7 @@ public class FollowingActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_following);
 		
-		manager = getSupportFragmentManager();
-		fUserFollowing = (FragmentUserFollowing) manager.findFragmentById(R.id.fragmentUserFollowing);
+//		manager = getSupportFragmentManager();
+//		fUserFollowing = (FragmentUserFollowing) manager.findFragmentById(R.id.fragmentUserFollowing);
 	}
 }

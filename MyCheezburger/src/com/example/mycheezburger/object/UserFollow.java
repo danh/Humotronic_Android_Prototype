@@ -1,11 +1,15 @@
 package com.example.mycheezburger.object;
 
-public class UserFollow {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class UserFollow implements Parcelable{
 	
 	private int userFollowId;
 	private String userFollowName;
 	private String userFollowEdit;
 	private int userFollowImgId;
+	
 	// true: green picture
 	// false: orange picture 
 	private boolean isFollowed;
@@ -17,6 +21,7 @@ public class UserFollow {
 			int userFollowImgId, 
 			boolean isFollowed) {
 		// TODO Auto-generated constructor stub
+		super();
 		this.userFollowId = userFollowId;
 		this.userFollowName = userFollowName;
 		this.userFollowEdit = userFollowEdit;
@@ -64,6 +69,46 @@ public class UserFollow {
 	
 	public boolean getIsFollowed() {
 		return this.isFollowed;
+	}
+
+	
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		dest.writeInt(userFollowId);
+		dest.writeString(userFollowName);
+		dest.writeString(userFollowEdit);
+		dest.writeInt(userFollowImgId);
+		
+		// if myBoolean == true, byte == 1
+		dest.writeByte((byte) (isFollowed ? 1 : 0));     
+		
+	}
+	
+	public static final Parcelable.Creator<UserFollow> CREATOR = new Parcelable.Creator<UserFollow>() {
+		public UserFollow createFromParcel(Parcel in) {
+		    return new UserFollow(in);
+		}
+		
+		public UserFollow[] newArray(int size) {
+		    return new UserFollow[size];
+		}
+	};
+		
+	private UserFollow(Parcel in) {
+		this.userFollowId = in.readInt();
+		this.userFollowName = in.readString();
+		this.userFollowEdit = in.readString();
+		this.userFollowImgId = in.readInt();
+
+		// if in.readByte() = 1 => in.readByte() != 0 = true = isFollowed;
+		this.isFollowed = in.readByte() != 0;
 	}
 
 }

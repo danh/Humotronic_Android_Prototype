@@ -38,6 +38,7 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 	
 	Button btnFollower;
 	Button btnFollowing;
+
 	
 	public FragmentUserProfile() {
 		// Required empty public constructor
@@ -124,6 +125,4 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 			}
 		}
 	}
-
-
 }

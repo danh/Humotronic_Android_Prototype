@@ -19,7 +19,6 @@ import android.widget.Toast;
 public class UserFollowersAdapter extends BaseAdapter implements OnClickListener{
 
 	private Context context;
-//	private String[] followersName;
 	
 	List<UserFollow> userFollows = new ArrayList<UserFollow>();
 	
@@ -28,18 +27,9 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 	ImageView imgFollow;
 	ImageView imgUser;
 	
-	public UserFollowersAdapter(Context context, String[] followersName) {
+	public UserFollowersAdapter(Context context, List<UserFollow> userFollows) {
 		this.context = context;
-//		this.followersName = followersName;
-		
-		// Set userFollows list
-		UserFollow userFollow;
-		
-		for (int i = 0; i < followersName.length; ++i) {
-			userFollow = new UserFollow(i, followersName[i], "Edit", R.drawable.user, false);
-						
-			userFollows.add(userFollow);
-		}
+		this.userFollows = userFollows;
 	}
 	
 	@Override
