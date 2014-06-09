@@ -62,26 +62,6 @@
         <item>Dally</item>
         <item>Big Bonny</item>
         <item>Jonh</item>
-        <item>Smath</item>
-        <item>Lery</item>
-        <item>Vito</item>
-        <item>Selly</item>
-        <item>Mikami</item>
-        <item>JiJi</item>
-        <item>Shena</item>
-        <item>Belly</item>
-        <item>Andrew</item>
-        <item>Yuki</item>
-        <item>Katsumi</item>
-        <item>Kute</item>
-        <item>Romino</item>
-        <item>Juli</item>
-        <item>Mik</item>
-        <item>May</item>
-        <item>Seal</item>
-        <item>Jenny</item>
-        <item>Alice</item>
-        <item>Long</item>
     </string-array>
 
     <string name="title_activity_followers">FollowersActivity</string>

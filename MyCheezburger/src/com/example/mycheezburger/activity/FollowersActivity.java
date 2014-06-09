@@ -16,6 +16,8 @@ import android.util.Log;
 
 public class FollowersActivity extends FragmentActivity {
 	
+	private final String TAG_USER_FOLLOWERS = "TAG_USER_FOLLOWERS";
+	
 	FragmentManager manager = getSupportFragmentManager();
 	FragmentTransaction transaction = manager.beginTransaction();
 	
@@ -31,12 +33,12 @@ public class FollowersActivity extends FragmentActivity {
 		userFollowers = bundle.getParcelableArrayList("UserFollowers");
 		
 		// if there was a fragment
-		FragmentUserFollowers fUserFollower = (FragmentUserFollowers) manager.findFragmentByTag("USER_FOLLOWERS_TAG");
+		FragmentUserFollowers fUserFollower = (FragmentUserFollowers) manager.findFragmentByTag(TAG_USER_FOLLOWERS);
 
 		if (fUserFollower == null)
 		{
 			fUserFollower = new FragmentUserFollowers();
-			transaction.add(R.id.followerFragmentActivity, fUserFollower, "USER_FOLLOWERS_TAG");
+			transaction.add(R.id.followerFragmentActivity, fUserFollower, TAG_USER_FOLLOWERS);
 			fUserFollower.setArguments(bundle);
 			transaction.commit();
 		}

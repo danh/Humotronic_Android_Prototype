@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.mycheezburger.activity.FollowersActivity;
 import com.example.mycheezburger.activity.FollowingActivity;
 import com.example.mycheezburger.adapter.UserPictureAdapter;
+import com.example.mycheezburger.database.UserFollowDatabaseHelper;
 import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;
 
@@ -13,6 +14,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -52,7 +54,8 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 	
 	List<UserFollow> userFollowers = new ArrayList<UserFollow>();
 	List<UserFollow> userFollowing = new ArrayList<UserFollow>();
-	
+
+	UserFollowDatabaseHelper userFollowHelper;
 	
 	public FragmentUserProfile() {
 		// Required empty public constructor
@@ -64,11 +67,8 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		// Inflate the layout for this fragment
 		View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
 		
-		// Initial User follower
-		InitUserFollowers();
-		
-		// Initial User follower
-		InitUserFollowing();
+		// Database
+		userFollowHelper = new UserFollowDatabaseHelper(view.getContext());
 		
 		userPictures = getResources().getStringArray(R.array.itemNames);
 		
@@ -78,13 +78,8 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		txtReposts = (TextView) view.findViewById(R.id.txtReposts);
 		
 		btnFollower = (Button) view.findViewById(R.id.btnFollowers);
-		btnFollower.setText("FOLLOWERS: \n" + userFollowers.size());
-		btnFollower.setTextSize(1,(float) 20.0);
-		
 		btnFollowing = (Button) view.findViewById(R.id.btnFollowing);
-		btnFollowing.setText("FOLLOWING: \n" + userFollowing.size());
-		btnFollowing.setTextSize(1,(float) 20.0);
-		
+
 			// SET on click listener
 		imgFollow.setOnClickListener(this);
 		
@@ -103,6 +98,27 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		
 		return view;
 	}
+	
+	@Override 
+	public void onStart() {
+		super.onStart();
+		// Initial User follower
+		if (readUserFollowerDatabase() == false)
+		{
+			initUserFollowers();
+			readUserFollowerDatabase();
+		}
+
+		readUserFollowingDatabase();
+		
+		btnFollower.setText("FOLLOWERS: \n" + userFollowers.size());
+		btnFollower.setTextSize(1,(float) 20.0);
+		
+		btnFollowing.setText("FOLLOWING: \n" + userFollowing.size());
+		btnFollowing.setTextSize(1,(float) 20.0);
+		
+		Log.v("onStart", "onStart UserProfile");
+	};
 
 	@Override
 	public void onClick(View v) {
@@ -166,29 +182,37 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		}
 	}
 	
-	public void InitUserFollowers() {
+	public void initUserFollowers() {
 		// get User name
 		followersName = getResources().getStringArray(R.array.followerNames);
 		// Set userFollows list
-		UserFollow userFollow;
-		
 		for (int i = 0; i < followersName.length; ++i) {
-			userFollow = new UserFollow(i, followersName[i], "Edit", R.drawable.user, false);
-						
-			userFollowers.add(userFollow);
+			userFollowHelper.insertData(followersName[i], "Edit", String.valueOf(R.drawable.user), "false");
 		}
 	}
 	
-	public void InitUserFollowing() {
+	public boolean readUserFollowerDatabase() {
+		userFollowers = userFollowHelper.getAllData();
+		if (userFollowers.size() == 0) {
+			return false;
+		}
+		return true;
+	}
+	
+	public void initUserFollowing() {
 		// get User name
 		followingName = getResources().getStringArray(R.array.followingNames);
 		// Set userFollows list
-		UserFollow userFollow;
-		
 		for (int i = 0; i < followingName.length; ++i) {
-			userFollow = new UserFollow(i, followingName[i], "Edit", R.drawable.user, true);
-						
-			userFollowing.add(userFollow);
+			userFollowHelper.insertData(followingName[i], "Edit", String.valueOf(R.drawable.user), "true");
 		}
+	}
+	
+	public boolean readUserFollowingDatabase() {
+		userFollowing = userFollowHelper.getFollowingData();
+		if (userFollowing.size() == 0) {
+			return false;
+		}
+		return true;
 	}
 }

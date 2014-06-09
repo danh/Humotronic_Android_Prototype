@@ -11,21 +11,23 @@ import android.support.v4.app.FragmentTransaction;
 
 public class UserProfileActivity extends FragmentActivity{
 
+	private final String TAG_USER_PROFILE = "TAG_USER_PROFILE";
 	
-	
-	int display_mode;
+	FragmentManager manager = getSupportFragmentManager();
+	FragmentTransaction transaction = manager.beginTransaction();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_profile);
 
-		FragmentManager manager = getSupportFragmentManager();
-		FragmentTransaction transaction = manager.beginTransaction();
+		FragmentUserProfile fUserProfile = (FragmentUserProfile) manager.findFragmentByTag(TAG_USER_PROFILE);
 		
-		FragmentUserProfile fUserProfile = new FragmentUserProfile();
-		transaction.add(R.id.fragmentUserProfile, fUserProfile);
-		transaction.commit();
+		if (fUserProfile == null) {
+			fUserProfile = new FragmentUserProfile();
+			transaction.add(R.id.fragmentUserProfile, fUserProfile, TAG_USER_PROFILE);
+			transaction.commit();
+		}
 	}
 
 }

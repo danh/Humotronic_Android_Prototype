@@ -3,7 +3,9 @@ package com.example.mycheezburger.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.mycheezburger.database.UserFollowDatabaseHelper;
 import com.example.mycheezburger.object.UserFollow;
+import com.example.mycheezburger.object.UserFollowTag;
 import com.example.swipetab.R;
 
 import android.content.Context;
@@ -26,6 +28,10 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 	TextView txtFollowingEdit;
 	ImageView imgFollow;
 	ImageView imgUser;
+	
+	UserFollowDatabaseHelper UserFollowingHelper;
+	
+	UserFollowTag imgFollowTag;
 	
 	public UserFollowingAdapter(Context context, List<UserFollow> userFollows) {
 		// TODO Auto-generated constructor stub
@@ -52,20 +58,29 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 			listView = (View) view;
 		}
 		
+		// Database
+		UserFollowingHelper = new UserFollowDatabaseHelper(context);
+		
 		imgUser = (ImageView) listView.findViewById(R.id.imgUser);
-//		imgUser.setImageResource(R.drawable.user);
 		imgUser.setImageResource(userFollows.get(position).getImgId());
 		
 		txtFollowingName = (TextView) listView.findViewById(R.id.txtFollowName);
-//		txtFollowerName.setText(followersName[position]);
 		txtFollowingName.setText(userFollows.get(position).getName());
 		
 		txtFollowingEdit = (TextView) listView.findViewById(R.id.txtFollowEdit);
 		txtFollowingEdit.setText(userFollows.get(position).getEdit());
 		
 		imgFollow = (ImageView) listView.findViewById(R.id.imgFollow);
-		imgFollow.setTag(userFollows.get(position).getId());
-//		imgFollow.setImageResource(R.drawable.follow);
+		// Position = 0		:	User ID = 1 => TAG = 1
+		// Position = 1		:	User ID = 2 => TAG = 2
+		// ...
+		
+		imgFollowTag = new UserFollowTag();
+		imgFollowTag.setListviewPosition(position);
+		imgFollowTag.setDatabasePosition(userFollows.get(position).getId());
+		
+		imgFollow.setTag(imgFollowTag);
+
 		if (userFollows.get(position).getIsFollowed() == true) {
 			imgFollow.setImageResource(R.drawable.followed);
 			
@@ -106,17 +121,42 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 				imgFollow = (ImageView) v.findViewById(R.id.imgFollow);
 				
 				// if user is followed, unfollow
-				if (userFollows.get((int)imgFollow.getTag()).getIsFollowed() == true) {
+				imgFollowTag = (UserFollowTag) imgFollow.getTag();
+				
+				int databasePosition = imgFollowTag.getDatabasePosition();
+				int listViewPosition = imgFollowTag.getListviewPosition();
+				
+				if (userFollows.get(listViewPosition).getIsFollowed() == true) {
+					
 					imgFollow.setImageResource(R.drawable.follow);
-					userFollows.get((int)imgFollow.getTag()).setIsFollowed(false);
-					Toast.makeText(context, "Unfollow Successful", Toast.LENGTH_SHORT).show();
+					
+					// update in database
+					UserFollowingHelper.updateFollowed(
+											String.valueOf(databasePosition),
+											"true",
+											"false");
+					
+					userFollows.get(listViewPosition).setIsFollowed(false);
+					
+					Toast.makeText(context, 
+							"Unfollow " + userFollows.get(listViewPosition).getName() + " Successful", 
+							Toast.LENGTH_SHORT).show();
 					
 				} else {
 					// if user is not followed, allow user to be followed
 					// set Is followed = true
 					imgFollow.setImageResource(R.drawable.followed);
-					userFollows.get((int)imgFollow.getTag()).setIsFollowed(true);
-					Toast.makeText(context, "Follow Successful", Toast.LENGTH_SHORT).show();
+					userFollows.get(listViewPosition).setIsFollowed(true);
+					
+					// update in database
+					UserFollowingHelper.updateFollowed(
+											String.valueOf(databasePosition),
+											"false",
+											"true");
+					
+					Toast.makeText(context, 
+							"Follow " + userFollows.get(listViewPosition).getName() + " Successful", 
+							Toast.LENGTH_SHORT).show();
 				}
 			}
 			break;
