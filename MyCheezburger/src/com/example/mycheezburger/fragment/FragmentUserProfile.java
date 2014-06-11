@@ -11,6 +11,8 @@ import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;

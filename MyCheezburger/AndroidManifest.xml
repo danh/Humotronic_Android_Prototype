@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.NoTitleBar" >
         <activity
             android:name="com.example.mycheezburger.activity.MainActivity"
             android:label="@string/app_name"
@@ -34,7 +34,7 @@
         <activity
             android:name="com.example.mycheezburger.activity.UserProfileActivity"
             android:label="@string/title_activity_user_profile"
-            android:theme="@style/Theme.PageIndicatorDefaults" >
+            android:theme="@style/Theme.PageIndicatorTextColorBlue" >
         </activity>
         <activity
             android:name="com.example.mycheezburger.activity.FollowersActivity"

@@ -16,7 +16,7 @@
         android:layout_marginBottom="0dp"
         android:layout_marginRight="0dp"
 
-		android:background="#4169E1"
+		android:background="#F6F6F6"
 
         android:numColumns="auto_fit"
         android:horizontalSpacing="10dp"

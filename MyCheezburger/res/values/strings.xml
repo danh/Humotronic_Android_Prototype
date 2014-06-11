@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">SwipeTab</string>
+    <string name="app_name">CHEEZBURGER</string>
     <string name="hello_world">Hello world!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="itemName">Item Name</string>
@@ -18,7 +18,7 @@
     <string name="uploads">Uploads</string>
     <string name="reposts">Reposts</string>
     <string name="symbol_vertical">|</string>
-    <string name="title_activity_user_profile">UserProfileActivity</string>
+    <string name="title_activity_user_profile">HUMOR PROFILE</string>
 
     <string-array name="itemNames">
         <item>Item 1</item>
@@ -67,5 +67,7 @@
     <string name="title_activity_followers">FollowersActivity</string>
     <string name="title_activity_following">FollowingActivity</string>
     <color name="black">#000000</color>
+    <color name="dimGray">#696969</color>
+    <color name="blue">#1C86EE</color>
 
 </resources>

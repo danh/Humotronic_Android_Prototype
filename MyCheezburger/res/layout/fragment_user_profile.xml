@@ -3,57 +3,75 @@
     android:id="@+id/userProfileFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00BBFF"
+    android:background="#F6F6F6"
     tools:context="com.example.mycheezburger.fragment.FragmentUserProfile" >
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ImageView
-        android:id="@+id/imgUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/user" />
-    
-    <TextView
-        android:id="@+id/txtUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtEdit"
-        android:layout_alignTop="@+id/imgUser"
-        android:text="@string/name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="20sp" />
-    
-    <TextView
-        android:id="@+id/txtEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+	<LinearLayout
+	    android:id="@+id/linearLayoutUser"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
-		android:layout_marginLeft="100dp"
-        android:textSize="15sp"
-        android:text="@string/edit" />
-    
-    <ImageView
-        android:id="@+id/imgFollow"
-        android:layout_width="75dp"
-        android:layout_height="25dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="35dp"
-        android:layout_marginRight="15dp"
-        android:clickable="true"
-        android:src="@drawable/follow" />
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        android:background="#CFCFCF" >
+        
+	    <ImageView
+	        android:id="@+id/imgUser"
+	        android:layout_weight="1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical"
+	        android:src="@drawable/user" />
+
+	    <LinearLayout
+	        android:layout_weight="6"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical"
+	        android:orientation="vertical" >
+
+	        <TextView
+	            android:id="@+id/txtUserName"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/name"
+	            android:textAppearance="?android:attr/textAppearanceLarge"
+	            android:textSize="20sp"
+	            android:textColor="@color/black" />
+
+	        <TextView
+	            android:id="@+id/txtEdit"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/edit"
+	            android:textSize="15sp" 
+	            android:textColor="#1C86EE" />
+	    </LinearLayout>
+	    
+	    <ImageView
+	        android:id="@+id/imgFollow"
+	        android:layout_width="75dp"
+	        android:layout_height="25dp"
+	        android:layout_marginRight="10dp"
+	        android:layout_gravity="center_vertical"
+	        android:clickable="true"
+	        android:src="@drawable/follow" />
+	    
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtEdit"
-        android:layout_marginTop="20dp" android:id="@+id/linearLayoutButton">
+        android:layout_below="@+id/linearLayoutUser"
+        android:layout_marginTop="5dp" 
+        android:id="@+id/linearLayoutButton">
 
         <Button
             android:id="@+id/btnFollowers"
@@ -62,7 +80,9 @@
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:text="@string/follower" />
+            android:text="@string/follower"
+            android:textColor="#1C86EE"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnFollowing"
@@ -71,25 +91,28 @@
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
-            android:text="@string/following" />
+            android:text="@string/following"
+            android:textColor="#1C86EE"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <fragment
         android:id="@+id/fragmentUserPicture"
         android:name="com.example.mycheezburger.fragment.FragmentUserPicture"
+        
+        android:layout_below="@+id/linearLayoutButton"
 
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
 
 		android:layout_alignParentLeft="true"
-		android:layout_alignParentTop="true"
 		android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         
         android:layout_centerHorizontal="true"
         
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp" />
 

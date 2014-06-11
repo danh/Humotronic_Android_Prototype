@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Window;
 
 
 public class MainActivity extends FragmentActivity{
@@ -19,12 +20,14 @@ public class MainActivity extends FragmentActivity{
 	private static final String[] CONTENT = new String[] { "CHEEZBURGER", "YOUR FEED", "HOT TODAY" };
 	
 	ViewPager viewPager;
-//	ActionBar actionBar;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
+		
+		
 		
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager()));
