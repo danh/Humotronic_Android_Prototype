@@ -1,5 +1,6 @@
 package com.example.mycheezburger.fragment;
 
+import com.example.mycheezburger.adapter.UserPictureAdapter;
 import com.example.swipetab.R;
 
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 
 /**
  * A simple {@link android.support.v4.app.Fragment} subclass.
@@ -14,6 +16,12 @@ import android.view.ViewGroup;
  */
 public class FragmentUserUploadPicture extends Fragment {
 
+	GridView pictureGridView;
+	
+	UserPictureAdapter userPicAdapter;
+	
+	String[] userPictures;
+	
 	public FragmentUserUploadPicture() {
 		// Required empty public constructor
 	}
@@ -22,8 +30,18 @@ public class FragmentUserUploadPicture extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_user_upload_picture,
+		View view = inflater.inflate(R.layout.fragment_user_upload_picture,
 				container, false);
+		
+		userPictures = getResources().getStringArray(R.array.itemNames);
+		
+		pictureGridView = (GridView) view.findViewById(R.id.userUploadPictureGridView);
+		
+		userPicAdapter = new UserPictureAdapter(view.getContext(), userPictures);
+		
+		pictureGridView.setAdapter(userPicAdapter);	
+		
+		return view;
 	}
 
 }

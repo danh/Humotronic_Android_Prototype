@@ -3,7 +3,6 @@ package com.example.mycheezburger.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.mycheezburger.fragment.FragmentUserFollowers;
 import com.example.mycheezburger.fragment.FragmentUserFollowing;
 import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;

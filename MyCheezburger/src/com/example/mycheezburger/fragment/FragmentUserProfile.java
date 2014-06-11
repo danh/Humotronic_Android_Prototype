@@ -33,17 +33,17 @@ import android.widget.Toast;
  */
 public class FragmentUserProfile extends Fragment implements OnClickListener{
 
-	GridView pictureGridView;
+//	GridView pictureGridView;
 	
-	UserPictureAdapter userPicAdapter;
+//	UserPictureAdapter userPicAdapter;
 	
-	String[] userPictures;
+//	String[] userPictures;
 	
 	ImageView imgFollow;
 	
-	TextView txtAll;
-	TextView txtUploads;
-	TextView txtReposts;
+//	TextView txtAll;
+//	TextView txtUploads;
+//	TextView txtReposts;
 	
 	Button btnFollower;
 	Button btnFollowing;
@@ -60,7 +60,7 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 
 	UserFollowDatabaseHelper userFollowHelper;
 	
-//	FragmentManager manager = getFragmentManager();
+//	FragmentManager manager = getChildFragmentManager();
 //	FragmentTransaction transaction = manager.beginTransaction();
 	
 	public FragmentUserProfile() {
@@ -76,12 +76,13 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		// Database
 		userFollowHelper = new UserFollowDatabaseHelper(view.getContext());
 		
-		userPictures = getResources().getStringArray(R.array.itemNames);
+//		userPictures = getResources().getStringArray(R.array.itemNames);
 		
 		imgFollow = (ImageView) view.findViewById(R.id.imgFollow);
-		txtAll = (TextView) view.findViewById(R.id.txtAll);
-		txtUploads = (TextView) view.findViewById(R.id.txtUploads);
-		txtReposts = (TextView) view.findViewById(R.id.txtReposts);
+		
+//		txtAll = (TextView) view.findViewById(R.id.txtAll);
+//		txtUploads = (TextView) view.findViewById(R.id.txtUploads);
+//		txtReposts = (TextView) view.findViewById(R.id.txtReposts);
 		
 		btnFollower = (Button) view.findViewById(R.id.btnFollowers);
 		btnFollowing = (Button) view.findViewById(R.id.btnFollowing);
@@ -89,9 +90,9 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 			// SET on click listener
 		imgFollow.setOnClickListener(this);
 		
-		txtAll.setOnClickListener(this);
-		txtUploads.setOnClickListener(this);
-		txtReposts.setOnClickListener(this);
+//		txtAll.setOnClickListener(this);
+//		txtUploads.setOnClickListener(this);
+//		txtReposts.setOnClickListener(this);
 		
 		btnFollower.setOnClickListener(this);
 		btnFollowing.setOnClickListener(this);
@@ -104,16 +105,19 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 //		if (userPictureFragment == null)
 //		{
 //			userPictureFragment = new FragmentUserPicture();
-//			transaction.add(R.id.userProfileFragment, userPictureFragment, TAG_USER_PICTURE);
+//			transaction.add(R.id.userPicture, userPictureFragment, TAG_USER_PICTURE);
 //			transaction.commit();
 //		}
 		
+//		pictureGridView = (GridView) view.findViewById(R.id.userPicGridView);
+//		
+//		userPicAdapter = new UserPictureAdapter(view.getContext(), userPictures);
+//		
+//		pictureGridView.setAdapter(userPicAdapter);
 		
-		pictureGridView = (GridView) view.findViewById(R.id.userPicGridView);
 		
-		userPicAdapter = new UserPictureAdapter(view.getContext(), userPictures);
+		// Add user picture swipe tab
 		
-		pictureGridView.setAdapter(userPicAdapter);
 		
 		return view;
 	}
@@ -179,21 +183,21 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 				Toast.makeText(getActivity(), "Follow Successful", Toast.LENGTH_SHORT).show();
 			}
 			break;
-			case R.id.txtAll:
-			{
-				Toast.makeText(getActivity(), "Show All Images", Toast.LENGTH_SHORT).show();
-			}
-			break;
-			case R.id.txtUploads:
-			{
-				Toast.makeText(getActivity(), "Show Upload Images", Toast.LENGTH_SHORT).show();
-			}
-			break;
-			case R.id.txtReposts:
-			{
-				Toast.makeText(getActivity(), "Reposts", Toast.LENGTH_SHORT).show();
-			}
-			break;
+//			case R.id.txtAll:
+//			{
+//				Toast.makeText(getActivity(), "Show All Images", Toast.LENGTH_SHORT).show();
+//			}
+//			break;
+//			case R.id.txtUploads:
+//			{
+//				Toast.makeText(getActivity(), "Show Upload Images", Toast.LENGTH_SHORT).show();
+//			}
+//			break;
+//			case R.id.txtReposts:
+//			{
+//				Toast.makeText(getActivity(), "Reposts", Toast.LENGTH_SHORT).show();
+//			}
+//			break;
 			default:
 			{
 				Toast.makeText(getActivity(), "Nothing", Toast.LENGTH_SHORT).show();

@@ -66,5 +66,6 @@
 
     <string name="title_activity_followers">FollowersActivity</string>
     <string name="title_activity_following">FollowingActivity</string>
+    <color name="black">#000000</color>
 
 </resources>

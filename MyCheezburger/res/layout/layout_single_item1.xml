@@ -19,7 +19,8 @@
 		android:layout_below="@+id/imgSingleItem1"
         
         android:text="@string/itemName"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textColor="@color/black" />
 
     <ImageView
         android:id="@+id/imgUserSingleItem1"

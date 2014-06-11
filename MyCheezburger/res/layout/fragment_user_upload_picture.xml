@@ -2,15 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mycheezburger.fragment.FragmentUserUploadPicture" >
+    tools:context="com.example.mycheezburger.fragment.FragmentUserAllPicture" >
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fragment User Upload Picture"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+	<GridView
+        android:id="@+id/userUploadPictureGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="0dp"
 
+		android:background="#4169E1"
+
+        android:numColumns="auto_fit"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:columnWidth="140dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center" >
+    </GridView>
 </FrameLayout>

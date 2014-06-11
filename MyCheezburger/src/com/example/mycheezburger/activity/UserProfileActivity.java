@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 
 
 public class UserProfileActivity extends FragmentActivity{
@@ -28,6 +29,13 @@ public class UserProfileActivity extends FragmentActivity{
 			transaction.add(R.id.fragmentUserProfile, fUserProfile, TAG_USER_PROFILE);
 			transaction.commit();
 		}
+	}
+	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		Log.v("onDestroy", "onDestroy USER PROFILE");
 	}
 
 }
