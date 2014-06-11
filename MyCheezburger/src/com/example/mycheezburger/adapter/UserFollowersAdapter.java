@@ -61,7 +61,7 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 
 		imgUser = (ImageView) listView.findViewById(R.id.imgUser);
 		imgUser.setImageResource(userFollows.get(position).getImgId());
-		
+			
 		txtFollowerName = (TextView) listView.findViewById(R.id.txtFollowName);
 		txtFollowerName.setText(userFollows.get(position).getName());
 		
@@ -77,8 +77,6 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 		imgFollowTag.setDatabasePosition(userFollows.get(position).getId());
 		
 		imgFollow.setTag(imgFollowTag);
-		
-//		imgFollow.setTag(userFollows.get(position).getId());
 
 		if (userFollows.get(position).getIsFollowed() == false) {
 			imgFollow.setImageResource(R.drawable.follow);
@@ -108,9 +106,6 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 				
 				int databasePosition = imgFollowTag.getDatabasePosition();
 				int listViewPosition = imgFollowTag.getListviewPosition();
-				
-//				int databasePosition = (int) imgFollow.getTag();
-//				int listViewPosition = databasePosition - 1;
 
 				if (userFollows.get(listViewPosition).getIsFollowed() == true) {
 					

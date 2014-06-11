@@ -14,6 +14,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,11 +53,15 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 	
 	private final String TAG_USER_FOLLOWERS = "UserFollowers";
 	private final String TAG_USER_FOLLOWING = "UserFollowing";
+	private final String TAG_USER_PICTURE = "TAG_USER_PICTURE";
 	
 	List<UserFollow> userFollowers = new ArrayList<UserFollow>();
 	List<UserFollow> userFollowing = new ArrayList<UserFollow>();
 
 	UserFollowDatabaseHelper userFollowHelper;
+	
+//	FragmentManager manager = getFragmentManager();
+//	FragmentTransaction transaction = manager.beginTransaction();
 	
 	public FragmentUserProfile() {
 		// Required empty public constructor
@@ -89,6 +95,19 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		
 		btnFollower.setOnClickListener(this);
 		btnFollowing.setOnClickListener(this);
+		
+		
+		// User pictures
+		// if there was a fragment
+//		FragmentUserPicture userPictureFragment = (FragmentUserPicture) manager.findFragmentByTag(TAG_USER_PICTURE);
+//
+//		if (userPictureFragment == null)
+//		{
+//			userPictureFragment = new FragmentUserPicture();
+//			transaction.add(R.id.userProfileFragment, userPictureFragment, TAG_USER_PICTURE);
+//			transaction.commit();
+//		}
+		
 		
 		pictureGridView = (GridView) view.findViewById(R.id.userPicGridView);
 		

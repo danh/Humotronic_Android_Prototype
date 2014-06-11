@@ -120,7 +120,7 @@ public class UserFollowDatabaseHelper{
 			int index2 = cursor.getColumnIndex(UserFollowHelper.EDIT);
 			String personName = cursor.getString(index1);
 			String password = cursor.getString(index2);
-			buffer.append(name + " " + password + "\n");
+			buffer.append(personName + " " + password + "\n");
 		}
 		return buffer.toString();
 	}
@@ -155,7 +155,7 @@ public class UserFollowDatabaseHelper{
 	static class UserFollowHelper extends SQLiteOpenHelper {
 		private static final String DATABASE_NAME = "USER_FOLLOW";
 		private static final String TABLE_NAME = "FOLLOWERS";
-		private static final int DATABASE_VERSION = 5;
+		private static final int DATABASE_VERSION = 6;
 		private static final String UID = "Id";
 		private static final String NAME = "Name";
 		private static final String EDIT = "Edit";

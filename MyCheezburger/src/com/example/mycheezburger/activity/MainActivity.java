@@ -55,6 +55,7 @@ public class MainActivity extends FragmentActivity implements TabListener {
 		actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
+		
 		// set action bar
 		ActionBar.Tab tab1 = actionBar.newTab();
 		tab1.setText("Cheezburger");

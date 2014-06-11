@@ -144,7 +144,7 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 					
 				} else {
 					// if user is not followed, allow user to be followed
-					// set Is followed = true
+						// set Is followed = true
 					imgFollow.setImageResource(R.drawable.followed);
 					userFollows.get(listViewPosition).setIsFollowed(true);
 					
