@@ -2,10 +2,12 @@ package com.example.mycheezburger.fragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.example.mycheezburger.adapter.UserFollowingAdapter;
 import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
@@ -46,6 +48,9 @@ public class FragmentUserFollowing extends Fragment {
 		} else {
 			userFollowing = savedInstanceState.getParcelableArrayList(TAG_USER_FOLLOWING);
 		}
+		
+		ActionBar userFollowingActionBar = getActivity().getActionBar();
+		userFollowingActionBar.setTitle("FOLLOWING (" + userFollowing.size() + ")");
 		
 		followingName = getResources().getStringArray(R.array.followingNames);
 		

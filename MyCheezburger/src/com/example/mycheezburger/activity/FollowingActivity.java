@@ -1,10 +1,6 @@
 package com.example.mycheezburger.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.example.mycheezburger.fragment.FragmentUserFollowing;
-import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;
 
 import android.os.Bundle;
@@ -29,9 +25,6 @@ public class FollowingActivity extends FragmentActivity {
 		// Get user followers information
 		Bundle bundle = getIntent().getExtras();
 		
-		List<UserFollow> userFollowing = new ArrayList<UserFollow>();
-		userFollowing = bundle.getParcelableArrayList("UserFollowers");
-		
 		// if there was a fragment
 		FragmentUserFollowing fUserFollowing = (FragmentUserFollowing) manager.findFragmentByTag(TAG_USER_FOLLOWING);
 		
@@ -39,6 +32,7 @@ public class FollowingActivity extends FragmentActivity {
 		{
 			fUserFollowing = new FragmentUserFollowing();
 			transaction.add(R.id.followingFragmentActivity, fUserFollowing, TAG_USER_FOLLOWING);
+			// send information by bundle
 			fUserFollowing.setArguments(bundle);
 			transaction.commit();
 		}

@@ -27,8 +27,6 @@ public class MainActivity extends FragmentActivity{
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		
-		
-		
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		viewPager.setAdapter(new MainPagerAdapter(getSupportFragmentManager()));
 		

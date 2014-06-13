@@ -5,28 +5,21 @@ import java.util.List;
 
 import com.example.mycheezburger.activity.FollowersActivity;
 import com.example.mycheezburger.activity.FollowingActivity;
-import com.example.mycheezburger.adapter.UserPictureAdapter;
 import com.example.mycheezburger.database.UserFollowDatabaseHelper;
 import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -34,18 +27,8 @@ import android.widget.Toast;
  * 
  */
 public class FragmentUserProfile extends Fragment implements OnClickListener{
-
-//	GridView pictureGridView;
-	
-//	UserPictureAdapter userPicAdapter;
-	
-//	String[] userPictures;
 	
 	ImageView imgFollow;
-	
-//	TextView txtAll;
-//	TextView txtUploads;
-//	TextView txtReposts;
 	
 	Button btnFollower;
 	Button btnFollowing;
@@ -78,23 +61,13 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		// Database
 		userFollowHelper = new UserFollowDatabaseHelper(view.getContext());
 		
-//		userPictures = getResources().getStringArray(R.array.itemNames);
-		
 		imgFollow = (ImageView) view.findViewById(R.id.imgFollow);
-		
-//		txtAll = (TextView) view.findViewById(R.id.txtAll);
-//		txtUploads = (TextView) view.findViewById(R.id.txtUploads);
-//		txtReposts = (TextView) view.findViewById(R.id.txtReposts);
 		
 		btnFollower = (Button) view.findViewById(R.id.btnFollowers);
 		btnFollowing = (Button) view.findViewById(R.id.btnFollowing);
 
 			// SET on click listener
 		imgFollow.setOnClickListener(this);
-		
-//		txtAll.setOnClickListener(this);
-//		txtUploads.setOnClickListener(this);
-//		txtReposts.setOnClickListener(this);
 		
 		btnFollower.setOnClickListener(this);
 		btnFollowing.setOnClickListener(this);
@@ -111,15 +84,6 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 //			transaction.commit();
 //		}
 		
-//		pictureGridView = (GridView) view.findViewById(R.id.userPicGridView);
-//		
-//		userPicAdapter = new UserPictureAdapter(view.getContext(), userPictures);
-//		
-//		pictureGridView.setAdapter(userPicAdapter);
-		
-		
-		// Add user picture swipe tab
-		
 		
 		return view;
 	}
@@ -134,6 +98,7 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 			readUserFollowerDatabase();
 		}
 
+		// Initial User following
 		readUserFollowingDatabase();
 		
 		btnFollower.setText("FOLLOWERS: \n" + userFollowers.size());
@@ -185,21 +150,6 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 				Toast.makeText(getActivity(), "Follow Successful", Toast.LENGTH_SHORT).show();
 			}
 			break;
-//			case R.id.txtAll:
-//			{
-//				Toast.makeText(getActivity(), "Show All Images", Toast.LENGTH_SHORT).show();
-//			}
-//			break;
-//			case R.id.txtUploads:
-//			{
-//				Toast.makeText(getActivity(), "Show Upload Images", Toast.LENGTH_SHORT).show();
-//			}
-//			break;
-//			case R.id.txtReposts:
-//			{
-//				Toast.makeText(getActivity(), "Reposts", Toast.LENGTH_SHORT).show();
-//			}
-//			break;
 			default:
 			{
 				Toast.makeText(getActivity(), "Nothing", Toast.LENGTH_SHORT).show();

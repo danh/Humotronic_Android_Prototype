@@ -7,6 +7,7 @@ import com.example.mycheezburger.adapter.UserFollowersAdapter;
 import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
@@ -47,6 +48,8 @@ public class FragmentUserFollowers extends Fragment {
 			userFollowers = savedInstanceState.getParcelableArrayList(TAG_USER_FOLLOWER);
 		}
 		
+		ActionBar userFollowerActionBar = getActivity().getActionBar();
+		userFollowerActionBar.setTitle("FOLLOWERS (" + userFollowers.size() + ")");
 		
 		userFollowerList = (ListView) view.findViewById(R.id.listUserFollowers);
 		

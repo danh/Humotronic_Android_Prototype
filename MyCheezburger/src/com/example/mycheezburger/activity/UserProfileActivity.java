@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.Window;
 
 
 public class UserProfileActivity extends FragmentActivity{
@@ -21,9 +20,9 @@ public class UserProfileActivity extends FragmentActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_user_profile);
 
+		// Set User Profile Fragment
 		FragmentUserProfile fUserProfile = (FragmentUserProfile) manager.findFragmentByTag(TAG_USER_PROFILE);
 		
 		if (fUserProfile == null) {
@@ -32,6 +31,8 @@ public class UserProfileActivity extends FragmentActivity{
 			transaction.commit();
 		}
 	}
+	
+	
 	
 	@Override
 	protected void onDestroy() {

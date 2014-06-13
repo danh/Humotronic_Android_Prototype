@@ -8,6 +8,8 @@ import com.example.mycheezburger.object.UserFollow;
 import com.example.mycheezburger.object.UserFollowTag;
 import com.example.swipetab.R;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +25,7 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 	private Context context;
 
 	List<UserFollow> userFollows = new ArrayList<UserFollow>();
+	int numberOfFollowing = 0;
 	
 	TextView txtFollowingName;
 	TextView txtFollowingEdit;
@@ -37,6 +40,7 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.userFollows = userFollows;
+		this.numberOfFollowing = userFollows.size();
 	}
 	
 	@Override
@@ -126,6 +130,7 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 				int databasePosition = imgFollowTag.getDatabasePosition();
 				int listViewPosition = imgFollowTag.getListviewPosition();
 				
+				
 				if (userFollows.get(listViewPosition).getIsFollowed() == true) {
 					
 					imgFollow.setImageResource(R.drawable.follow);
@@ -135,9 +140,13 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 											String.valueOf(databasePosition),
 											"true",
 											"false");
-					
+					// user is not followed
 					userFollows.get(listViewPosition).setIsFollowed(false);
 					
+					// update number of follower
+					--numberOfFollowing;
+					
+					// show notification
 					Toast.makeText(context, 
 							"Unfollow " + userFollows.get(listViewPosition).getName() + " Successful", 
 							Toast.LENGTH_SHORT).show();
@@ -146,7 +155,6 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 					// if user is not followed, allow user to be followed
 						// set Is followed = true
 					imgFollow.setImageResource(R.drawable.followed);
-					userFollows.get(listViewPosition).setIsFollowed(true);
 					
 					// update in database
 					UserFollowingHelper.updateFollowed(
@@ -154,10 +162,20 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 											"false",
 											"true");
 					
+					// user is followed
+					userFollows.get(listViewPosition).setIsFollowed(true);
+					
+					// update number of follower
+					++numberOfFollowing;
+					
+					// show notification
 					Toast.makeText(context, 
 							"Follow " + userFollows.get(listViewPosition).getName() + " Successful", 
 							Toast.LENGTH_SHORT).show();
 				}
+				
+				ActionBar userFollowingActionbar =  ((Activity) v.getContext()).getActionBar();
+				userFollowingActionbar.setTitle("FOLLOWING (" + String.valueOf(numberOfFollowing) + ")");
 			}
 			break;
 			default:

@@ -16,7 +16,8 @@
 
 <resources>
     
-<style name="Theme.PageIndicatorDefaults" parent="android:Theme">
+    
+	<style name="Theme.PageIndicatorDefaults" parent="android:Theme">
         <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
         <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
     </style>
@@ -53,6 +54,45 @@
     
     
     
+    <style name="Theme.PageIndicatorDefaultsTabBlue" parent="android:Theme">
+        <item name="vpiIconPageIndicatorStyle">@style/WidgetTabBlue.IconPageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/WidgetTabBlue.TabPageIndicator</item>
+    </style>
+
+    <style name="WidgetTabBlue">
+    </style>
+
+    <style name="WidgetTabBlue.TabPageIndicator" parent="WidgetTabBlue">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/vpi__tab_indicator_blue_tab</item>
+        <item name="android:paddingLeft">22dip</item>
+        <item name="android:paddingRight">22dip</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearanceTabBlue.TabPageIndicator</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="TextAppearanceTabBlue.TabPageIndicator" parent="WidgetTabBlue">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/vpi__dark_theme</item>
+    </style>
+
+    <style name="WidgetTabBlue.IconPageIndicator" parent="WidgetTabBlue">
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:layout_marginRight">6dp</item>
+    </style>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <style name="Theme.PageIndicatorTextColorBlue" parent="android:Theme">
         <item name="vpiIconPageIndicatorStyle">@style/WidgetTextColorBlue.IconPageIndicator</item>
         <item name="vpiTabPageIndicatorStyle">@style/WidgetTextColorBlue.TabPageIndicator</item>
@@ -69,7 +109,7 @@
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">12dp</item>
         <item name="android:textAppearance">@style/TextAppearanceTextColorBlue.TabPageIndicator</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:maxLines">1</item>
     </style>
 
@@ -82,4 +122,5 @@
         <item name="android:layout_marginLeft">6dp</item>
         <item name="android:layout_marginRight">6dp</item>
     </style>
+
 </resources>

@@ -64,8 +64,8 @@
         <item>Jonh</item>
     </string-array>
 
-    <string name="title_activity_followers">FollowersActivity</string>
-    <string name="title_activity_following">FollowingActivity</string>
+    <string name="title_activity_followers">FOLLOWERS</string>
+    <string name="title_activity_following">FOLLOWING</string>
     <color name="black">#000000</color>
     <color name="dimGray">#696969</color>
     <color name="blue">#1C86EE</color>

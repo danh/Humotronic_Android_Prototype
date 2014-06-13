@@ -5,14 +5,12 @@ import com.example.swipetab.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 
-public class UserPictureAdapter extends BaseAdapter implements OnClickListener{
+public class UserPictureAdapter extends BaseAdapter{
 
 	private Context context;
 	private String[] itemValue;
@@ -63,24 +61,5 @@ public class UserPictureAdapter extends BaseAdapter implements OnClickListener{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		switch (v.getId())
-		{
-			case R.id.imgFollow:
-			{
-				Toast.makeText(v.getContext(), "Follow Successful", Toast.LENGTH_SHORT).show();
-			}
-			break;
-
-			default:
-			{
-				Toast.makeText(v.getContext(), "Nothing", Toast.LENGTH_SHORT).show();
-			}
-		}
-	}
-
 	
 }

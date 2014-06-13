@@ -3,11 +3,13 @@ package com.example.mycheezburger.fragment;
 import com.example.swipetab.R;
 import com.viewpagerindicator.TabPageIndicator;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +31,14 @@ public class FragmentUserPicture extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		// declare a contextThemeWrapper to store a theme
+		final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.Theme_PageIndicatorTextColorBlue);
+		
+		// 
+		LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+		
 		// Inflate the layout for this fragment
-		View view = inflater.inflate(R.layout.fragment_user_picture,
+		View view = localInflater.inflate(R.layout.fragment_user_picture,
 				container, false);
 		
 		viewPager = (ViewPager) view.findViewById(R.id.pager);

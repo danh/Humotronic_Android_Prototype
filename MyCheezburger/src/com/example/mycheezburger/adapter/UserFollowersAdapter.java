@@ -92,6 +92,9 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 		return listView;
 	}
 	
+	// SET Title of action bar
+	
+	
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -118,6 +121,7 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 											"true",
 											"false");
 					
+					// show notification
 					Toast.makeText(context, 
 							"Unfollow " + userFollows.get(listViewPosition).getName() + " Successful", 
 							Toast.LENGTH_SHORT).show();
@@ -134,6 +138,7 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 											"false",
 											"true");
 					
+					// show notification
 					Toast.makeText(context, 
 							"Follow " + userFollows.get(listViewPosition).getName() + " Successful", 
 							Toast.LENGTH_SHORT).show();
