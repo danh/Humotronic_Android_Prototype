@@ -14,7 +14,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:orientation="horizontal"
-        android:background="#CFCFCF" >
+        android:background="#FFFFFF" >
         
 	    <ImageView
 	        android:id="@+id/imgUser"
@@ -38,7 +38,8 @@
 	            android:text="@string/name"
 	            android:textAppearance="?android:attr/textAppearanceLarge"
 	            android:textSize="20sp"
-	            android:textColor="@color/black" />
+	            android:textColor="#54A5D5"
+	            android:textStyle="bold" />
 
 	        <TextView
 	            android:id="@+id/txtFollowEdit"
@@ -46,7 +47,7 @@
 	            android:layout_height="wrap_content"
 	            android:text="@string/edit"
 	            android:textSize="15sp" 
-	            android:textColor="#1C86EE" />
+	            android:textColor="#54A5D5" />
 	    </LinearLayout>
 	    
 	    <ImageView

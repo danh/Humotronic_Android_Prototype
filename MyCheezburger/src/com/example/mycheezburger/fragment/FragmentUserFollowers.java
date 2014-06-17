@@ -48,6 +48,7 @@ public class FragmentUserFollowers extends Fragment {
 			userFollowers = savedInstanceState.getParcelableArrayList(TAG_USER_FOLLOWER);
 		}
 		
+		// Show number of user on action bar
 		ActionBar userFollowerActionBar = getActivity().getActionBar();
 		userFollowerActionBar.setTitle("FOLLOWERS (" + userFollowers.size() + ")");
 		

@@ -35,19 +35,19 @@
             android:name="com.example.mycheezburger.activity.UserProfileActivity"
             android:icon="@drawable/cheezburger_logo_png"
             android:label="@string/title_activity_user_profile"
-            android:theme="@style/CustomActionBarTheme" >
+            android:theme="@style/UserProfileActionBarTheme" >
         </activity>
         <activity
             android:name="com.example.mycheezburger.activity.FollowersActivity"
             android:icon="@drawable/cheezburger_logo_png"
             android:label="@string/title_activity_followers"
-            android:theme="@style/CustomActionBarTheme" >
+            android:theme="@style/UserFollowActionBarTheme" >
         </activity>
         <activity
             android:name="com.example.mycheezburger.activity.FollowingActivity"
             android:icon="@drawable/cheezburger_logo_png"
             android:label="@string/title_activity_following"
-            android:theme="@style/CustomActionBarTheme" >
+            android:theme="@style/UserFollowActionBarTheme" >
         </activity>
     </application>
 

@@ -50,7 +50,7 @@ public class ItemAdapter extends BaseAdapter implements OnClickListener{
 		imageView.setImageResource(R.drawable.item2);
 		
 		ImageView userView = (ImageView) gridView.findViewById(R.id.imgUserSingleItem1);
-		userView.setImageResource(R.drawable.user);
+		userView.setImageResource(R.drawable.useryourfeedimage);
 		userView.setOnClickListener(this);
 		
 		return gridView;

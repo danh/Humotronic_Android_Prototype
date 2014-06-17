@@ -69,5 +69,8 @@
     <color name="black">#000000</color>
     <color name="dimGray">#696969</color>
     <color name="blue">#1C86EE</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#D6D6D6</color>
+    <color name="dimgray">#A0A0A0</color>
 
 </resources>

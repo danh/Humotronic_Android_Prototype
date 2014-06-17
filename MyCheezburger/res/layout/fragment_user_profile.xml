@@ -3,7 +3,7 @@
     android:id="@+id/userProfileFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
+    android:background="#EBEBEB"
     tools:context="com.example.mycheezburger.fragment.FragmentUserProfile" >
 
     <!-- TODO: Update blank fragment layout -->
@@ -19,7 +19,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:orientation="horizontal"
-        android:background="#CFCFCF" >
+        android:background="#D6D6D6" >
         
 	    <ImageView
 	        android:id="@+id/imgUser"
@@ -34,6 +34,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center_vertical"
+	        android:background="#D6D6D6"
 	        android:orientation="vertical" >
 
 	        <TextView
@@ -43,7 +44,8 @@
 	            android:text="@string/name"
 	            android:textAppearance="?android:attr/textAppearanceLarge"
 	            android:textSize="20sp"
-	            android:textColor="@color/black" />
+	            android:textColor="#858585"
+	            android:textStyle="bold" />
 
 	        <TextView
 	            android:id="@+id/txtEdit"
@@ -51,7 +53,7 @@
 	            android:layout_height="wrap_content"
 	            android:text="@string/edit"
 	            android:textSize="15sp" 
-	            android:textColor="#1C86EE" />
+	            android:textColor="#4B99D3" />
 	    </LinearLayout>
 	    
 	    <ImageView
@@ -77,29 +79,37 @@
             android:id="@+id/btnFollowers"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="0dp"
             android:layout_weight="1"
             android:text="@string/follower"
-            android:textColor="#1C86EE"
-            android:textStyle="bold" />
+            
+            android:textColor="#4B99D3"
+            android:textStyle="bold"
+            android:background="@drawable/custom_button_userprofile_follow" />
 
         <Button
             android:id="@+id/btnFollowing"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="0dp"
             android:layout_weight="1"
             android:text="@string/following"
-            android:textColor="#1C86EE"
-            android:textStyle="bold" />
+            
+            android:textColor="#4B99D3"
+            android:textStyle="bold"
+            android:background="@drawable/custom_button_userprofile_follow" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_above="@+id/fragmentUserPicture"
+		android:layout_below="@id/linearLayoutButton"
+		android:background="#D6D6D6"
+        android:orientation="vertical" >
+    </LinearLayout>
+    
     <fragment
         android:id="@+id/fragmentUserPicture"
         android:name="com.example.mycheezburger.fragment.FragmentUserPicture"
-        
         android:layout_below="@+id/linearLayoutButton"
 
 		android:layout_height="wrap_content"

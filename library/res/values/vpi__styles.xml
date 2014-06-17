@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     
     
 	<style name="Theme.PageIndicatorDefaults" parent="android:Theme">
@@ -115,7 +115,7 @@
 
     <style name="TextAppearanceTextColorBlue.TabPageIndicator" parent="WidgetTextColorBlue">
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/blue</item>
+        <item name="android:textColor">@color/custom_tab_change_userprofile_text_color</item>
     </style>
 
     <style name="WidgetTextColorBlue.IconPageIndicator" parent="WidgetTextColorBlue">

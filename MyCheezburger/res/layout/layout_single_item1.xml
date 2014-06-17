@@ -29,6 +29,6 @@
         android:layout_alignBottom="@+id/imgSingleItem1"
         android:layout_alignRight="@+id/imgSingleItem1"
         android:clickable="true"
-        android:src="@drawable/user" />
+        android:src="@drawable/useryourfeedimage" />
 
 </RelativeLayout>

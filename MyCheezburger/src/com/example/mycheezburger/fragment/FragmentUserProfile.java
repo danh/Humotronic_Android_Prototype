@@ -65,7 +65,7 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		
 		btnFollower = (Button) view.findViewById(R.id.btnFollowers);
 		btnFollowing = (Button) view.findViewById(R.id.btnFollowing);
-
+		
 			// SET on click listener
 		imgFollow.setOnClickListener(this);
 		

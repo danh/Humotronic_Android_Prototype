@@ -49,6 +49,7 @@ public class FragmentUserFollowing extends Fragment {
 			userFollowing = savedInstanceState.getParcelableArrayList(TAG_USER_FOLLOWING);
 		}
 		
+		// Show number of user on action bar
 		ActionBar userFollowingActionBar = getActivity().getActionBar();
 		userFollowingActionBar.setTitle("FOLLOWING (" + userFollowing.size() + ")");
 		

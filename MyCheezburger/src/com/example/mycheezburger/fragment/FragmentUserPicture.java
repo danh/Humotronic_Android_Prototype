@@ -1,6 +1,7 @@
 package com.example.mycheezburger.fragment;
 
 import com.example.swipetab.R;
+import com.viewpagerindicator.IconPagerAdapter;
 import com.viewpagerindicator.TabPageIndicator;
 
 import android.content.Context;
@@ -20,7 +21,12 @@ import android.view.ViewGroup;
  */
 public class FragmentUserPicture extends Fragment {
 
-	private static final String[] CONTENT = new String[] { "ALL", "UPLOAD", "REPOSTS" };
+	private static final String[] CONTENT = new String[] { "All", "Uploads", "Reposts" };
+	private static final int[] ICONS = new int[] {
+		R.drawable.custom_userprofile_tab_all,
+		R.drawable.custom_userprofile_tab_upload,
+		R.drawable.custom_userprofile_tab_repost,
+	};
 	
 	ViewPager viewPager;
 	
@@ -34,7 +40,7 @@ public class FragmentUserPicture extends Fragment {
 		// declare a contextThemeWrapper to store a theme
 		final Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.Theme_PageIndicatorTextColorBlue);
 		
-		// 
+		// Set theme inside local inflater
 		LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
 		
 		// Inflate the layout for this fragment
@@ -50,7 +56,7 @@ public class FragmentUserPicture extends Fragment {
 		return view;
 	}
 	
-	class UserPictureAdapter extends FragmentPagerAdapter {
+	class UserPictureAdapter extends FragmentPagerAdapter implements IconPagerAdapter {
 
 		// get the Fragment manager
 		public UserPictureAdapter(FragmentManager fm) {
@@ -74,14 +80,19 @@ public class FragmentUserPicture extends Fragment {
 		
 		@Override
 	    public CharSequence getPageTitle(int position) {
-	        return CONTENT[position % CONTENT.length].toUpperCase();
+	        return CONTENT[position % CONTENT.length];
+	    }
+		
+		@Override 
+		public int getIconResId(int index) {
+	          return ICONS[index];
 	    }
 		
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
 				// we have only 3 fragment, so the number is 3
-			return CONTENT.length;
+			return ICONS.length;
 		}
 	
 	}
