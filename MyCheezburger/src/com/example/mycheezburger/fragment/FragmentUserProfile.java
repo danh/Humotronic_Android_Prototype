@@ -45,9 +45,6 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 
 	UserFollowDatabaseHelper userFollowHelper;
 	
-//	FragmentManager manager = getChildFragmentManager();
-//	FragmentTransaction transaction = manager.beginTransaction();
-	
 	public FragmentUserProfile() {
 		// Required empty public constructor
 	}
@@ -71,20 +68,7 @@ public class FragmentUserProfile extends Fragment implements OnClickListener{
 		
 		btnFollower.setOnClickListener(this);
 		btnFollowing.setOnClickListener(this);
-		
-		
-		// User pictures
-		// if there was a fragment
-//		FragmentUserPicture userPictureFragment = (FragmentUserPicture) manager.findFragmentByTag(TAG_USER_PICTURE);
-//
-//		if (userPictureFragment == null)
-//		{
-//			userPictureFragment = new FragmentUserPicture();
-//			transaction.add(R.id.userPicture, userPictureFragment, TAG_USER_PICTURE);
-//			transaction.commit();
-//		}
-		
-		
+
 		return view;
 	}
 	

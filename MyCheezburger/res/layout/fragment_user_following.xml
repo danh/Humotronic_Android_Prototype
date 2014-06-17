@@ -7,10 +7,10 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ListView
+    <com.example.mycheezburger.endlesslistview.UserFollowingEndlessListview
         android:id="@+id/listUserFollowing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </ListView>
+    </com.example.mycheezburger.endlesslistview.UserFollowingEndlessListview>
 
 </FrameLayout>

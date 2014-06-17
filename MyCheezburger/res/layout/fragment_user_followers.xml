@@ -6,11 +6,10 @@
     tools:context="com.example.mycheezburger.fragment.FragmentUserFollowers" >
 
     <!-- TODO: Update blank fragment layout -->
-
-    <ListView
+	<com.example.mycheezburger.endlesslistview.UserFollowersEndlessListview
         android:id="@+id/listUserFollowers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </ListView>
+    </com.example.mycheezburger.endlesslistview.UserFollowersEndlessListview>
 
 </FrameLayout>

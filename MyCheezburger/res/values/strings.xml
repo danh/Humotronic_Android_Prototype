@@ -54,6 +54,66 @@
         <item>Romeo</item>
         <item>Juliet</item>
         <item>Mika</item>
+        <item>JoJo</item>
+        <item>Kate Chen</item>
+        <item>Dolly</item>
+        <item>Bonny</item>
+        <item>Jack</item>
+        <item>Smith</item>
+        <item>Mary</item>
+        <item>Vitoria</item>
+        <item>Sally</item>
+        <item>Mikasaki</item>
+        <item>JaJa</item>
+        <item>Shana</item>
+        <item>Boss</item>
+        <item>Android</item>
+        <item>Yugi</item>
+        <item>Kasumi</item>
+        <item>Kat</item>
+        <item>Romeo</item>
+        <item>Juliet</item>
+        <item>Mika</item>
+        <item>JoJo</item>
+        <item>Kate Chen</item>
+        <item>Dolly</item>
+        <item>Bonny</item>
+        <item>Jack</item>
+        <item>Smith</item>
+        <item>Mary</item>
+        <item>Vitoria</item>
+        <item>Sally</item>
+        <item>Mikasaki</item>
+        <item>JaJa</item>
+        <item>Shana</item>
+        <item>Boss</item>
+        <item>Android</item>
+        <item>Yugi</item>
+        <item>Kasumi</item>
+        <item>Kat</item>
+        <item>Romeo</item>
+        <item>Juliet</item>
+        <item>Mika</item>
+        <item>JoJo</item>
+        <item>Kate Chen</item>
+        <item>Dolly</item>
+        <item>Bonny</item>
+        <item>Jack</item>
+        <item>Smith</item>
+        <item>Mary</item>
+        <item>Vitoria</item>
+        <item>Sally</item>
+        <item>Mikasaki</item>
+        <item>JaJa</item>
+        <item>Shana</item>
+        <item>Boss</item>
+        <item>Android</item>
+        <item>Yugi</item>
+        <item>Kasumi</item>
+        <item>Kat</item>
+        <item>Romeo</item>
+        <item>Juliet</item>
+        <item>Mika</item>
     </string-array>
     
     <string-array name="followingNames">
@@ -72,5 +132,7 @@
     <color name="white">#FFFFFF</color>
     <color name="gray">#D6D6D6</color>
     <color name="dimgray">#A0A0A0</color>
+    <string name="findMoreFollower">Finding More Followers...</string>
+    <string name="findMoreFollowing">Finding More Following...</string>
 
 </resources>

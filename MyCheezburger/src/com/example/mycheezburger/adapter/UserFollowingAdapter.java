@@ -15,12 +15,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class UserFollowingAdapter extends BaseAdapter implements OnClickListener{
+public class UserFollowingAdapter extends ArrayAdapter<UserFollow> implements OnClickListener{
 
 	private Context context;
 
@@ -38,6 +38,7 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 	
 	public UserFollowingAdapter(Context context, List<UserFollow> userFollows) {
 		// TODO Auto-generated constructor stub
+		super(context,0,userFollows);
 		this.context = context;
 		this.userFollows = userFollows;
 		this.numberOfFollowing = userFollows.size();
@@ -104,7 +105,7 @@ public class UserFollowingAdapter extends BaseAdapter implements OnClickListener
 	}
 
 	@Override
-	public Object getItem(int arg0) {
+	public UserFollow getItem(int arg0) {
 		// TODO Auto-generated method stub
 		return null;
 	}

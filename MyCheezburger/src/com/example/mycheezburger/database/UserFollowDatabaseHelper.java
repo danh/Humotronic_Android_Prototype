@@ -66,6 +66,49 @@ public class UserFollowDatabaseHelper{
 		return userFollow;
 	}
 	
+	public List<UserFollow> getData(int begin, int end) {
+		SQLiteDatabase db = helper.getWritableDatabase();
+		
+		String[] columns = {
+						UserFollowHelper.UID,
+						UserFollowHelper.NAME,
+						UserFollowHelper.EDIT,
+						UserFollowHelper.IMGID,
+						UserFollowHelper.ISFOLLOWED };
+		Cursor cursor = db.query(UserFollowHelper.TABLE_NAME, columns, null, null, null, null, null);
+
+		List<UserFollow> userFollow = new ArrayList<UserFollow>();
+		UserFollow user;
+			// set cursor to begin of sub string
+		cursor.moveToPosition(begin);
+			// get followers information
+		for (int i = begin; i < end; ++i) {
+			if (cursor != null) {
+				int cid = cursor.getInt(0);
+				String strName = cursor.getString(1);
+				String StrEdit = cursor.getString(2);
+				String StrImgId = cursor.getString(3);
+				String StrIsFollowed = cursor.getString(4);
+				
+				int intImgId = Integer.parseInt(StrImgId);
+				boolean IsFollowed = false;
+				if (StrIsFollowed.equalsIgnoreCase("true")) {
+					IsFollowed = true;
+				}
+				
+				user = new UserFollow(cid, strName, StrEdit, intImgId, IsFollowed);
+				userFollow.add(user);
+					// move to the next user follower
+				cursor.moveToNext();
+			} else {
+				break;
+			}
+			
+		}
+		
+		return userFollow;
+	}
+	
 	public List<UserFollow> getFollowingData() {
 		SQLiteDatabase db = helper.getWritableDatabase();
 		
@@ -155,7 +198,7 @@ public class UserFollowDatabaseHelper{
 	static class UserFollowHelper extends SQLiteOpenHelper {
 		private static final String DATABASE_NAME = "USER_FOLLOW";
 		private static final String TABLE_NAME = "FOLLOWERS";
-		private static final int DATABASE_VERSION = 9;
+		private static final int DATABASE_VERSION = 11;
 		private static final String UID = "Id";
 		private static final String NAME = "Name";
 		private static final String EDIT = "Edit";

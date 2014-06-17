@@ -13,12 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class UserFollowersAdapter extends BaseAdapter implements OnClickListener{
+public class UserFollowersAdapter extends ArrayAdapter<UserFollow> implements OnClickListener{
 
 	private Context context;
 	
@@ -29,11 +29,12 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 	ImageView imgFollow;
 	ImageView imgUser;
 	
-	UserFollowDatabaseHelper UserFollowersHelper;
+	UserFollowDatabaseHelper userFollowersHelper;
 	
 	UserFollowTag imgFollowTag;
 	
 	public UserFollowersAdapter(Context context, List<UserFollow> userFollows) {
+		super(context, 0,userFollows);
 		this.context = context;
 		this.userFollows = userFollows;
 	}
@@ -57,7 +58,7 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 		}
 		
 		// Database
-		UserFollowersHelper = new UserFollowDatabaseHelper(context);
+		userFollowersHelper = new UserFollowDatabaseHelper(context);
 
 		imgUser = (ImageView) listView.findViewById(R.id.imgUser);
 		imgUser.setImageResource(userFollows.get(position).getImgId());
@@ -116,7 +117,7 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 					userFollows.get(listViewPosition).setIsFollowed(false);
 					
 					// update in database
-					UserFollowersHelper.updateFollowed(
+					userFollowersHelper.updateFollowed(
 											String.valueOf(databasePosition),
 											"true",
 											"false");
@@ -133,7 +134,7 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 					userFollows.get(listViewPosition).setIsFollowed(true);
 					
 					// update in database
-					UserFollowersHelper.updateFollowed(
+					userFollowersHelper.updateFollowed(
 											String.valueOf(databasePosition),
 											"false",
 											"true");
@@ -159,7 +160,7 @@ public class UserFollowersAdapter extends BaseAdapter implements OnClickListener
 	}
 
 	@Override
-	public Object getItem(int position) {
+	public UserFollow getItem(int position) {
 		// TODO Auto-generated method stub
 		return userFollows.get(position);
 	}

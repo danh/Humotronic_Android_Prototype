@@ -4,31 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.mycheezburger.adapter.UserFollowingAdapter;
+import com.example.mycheezburger.endlesslistview.UserFollowingEndlessListview;
+import com.example.mycheezburger.endlesslistview.UserFollowingEndlessListview.EndlessListener;
 import com.example.mycheezburger.object.UserFollow;
 import com.example.swipetab.R;
 
 import android.app.ActionBar;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 /**
  * A simple {@link android.support.v4.app.Fragment} subclass.
  * 
  */
-public class FragmentUserFollowing extends Fragment {
+public class FragmentUserFollowing extends Fragment implements EndlessListener {
 
 	private final String TAG_USER_FOLLOWING = "UserFollowing";
+	private final static int USER_PER_REQUEST = 20;
+	private int userPosition = 0;
 	
-	ListView userFollowingList;
+	UserFollowingEndlessListview userFollowingList;
 	
 	UserFollowingAdapter followingAdapter;
-	
-	String[] followingName;
 	
 	List<UserFollow> userFollowing = new ArrayList<UserFollow>();
 	
@@ -53,15 +55,62 @@ public class FragmentUserFollowing extends Fragment {
 		ActionBar userFollowingActionBar = getActivity().getActionBar();
 		userFollowingActionBar.setTitle("FOLLOWING (" + userFollowing.size() + ")");
 		
-		followingName = getResources().getStringArray(R.array.followingNames);
+		userFollowingList = (UserFollowingEndlessListview) view.findViewById(R.id.listUserFollowing);
 		
-		userFollowingList = (ListView) view.findViewById(R.id.listUserFollowing);
+		followingAdapter = new UserFollowingAdapter(view.getContext(), createSubUserFollowing());
 		
-		followingAdapter = new UserFollowingAdapter(view.getContext(), userFollowing);
-		
+		userFollowingList.setTotalNumberOfFollowing(userFollowing.size());
+		userFollowingList.setLoadingView(R.layout.loading_user_following);
 		userFollowingList.setAdapter(followingAdapter);
+		userFollowingList.setListener(this);
 		
 		return view;
+	}
+	
+	private class UserFollowingLoader extends AsyncTask<UserFollow, Void, List<UserFollow>> {
+
+		@Override
+		protected List<UserFollow> doInBackground(UserFollow... params) {
+			// TODO Auto-generated method stub
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {				
+				e.printStackTrace();
+			}
+			return createSubUserFollowing();
+		}
+		
+		@Override
+		protected void onPostExecute(List<UserFollow> result) {			
+			super.onPostExecute(result);
+			userFollowingList.addNewData(result);
+		}
+		
+	}
+	
+	private List<UserFollow> createSubUserFollowing() {
+		List<UserFollow> subUserFollow = new ArrayList<UserFollow>();
+		
+		for (int i = 0; i < USER_PER_REQUEST; ++i) {
+			if (i + userPosition < userFollowing.size()) {
+				subUserFollow.add(userFollowing.get(i + userPosition));
+			} else {
+				break;
+			}
+			
+		}
+		
+		return subUserFollow;
+	}
+	
+	@Override
+	public void loadData() {
+		System.out.println("Load data");
+		userPosition += USER_PER_REQUEST;
+		// We load more data here
+		UserFollowingLoader fl = new UserFollowingLoader();
+		fl.execute(new UserFollow[]{});
+		
 	}
 	
 	@Override 
